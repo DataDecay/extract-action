@@ -1,0 +1,35 @@
+name: Extract Action
+author: ihiroky
+branding:
+  icon: archive
+  color: orange
+description: Extracts a various format archive file and works on any platform.
+inputs:
+  file_path:
+    description: File path to extract.
+    required: true
+  extract_dir:
+    description: Directory path to extract archive.
+    required: false
+    default: .
+  verbose:
+    description: 'Shows details about the result of running this action.'
+    required: false
+    default: false
+runs:
+  using: 'composite'
+  steps:
+  - run: |
+      import os
+
+      # Environment variables for 'inputs' are probably not defined in python shell.
+      # So refer them here.
+      file_path = '${{ inputs.file_path }}'
+      extract_dir = '${{ inputs.extract_dir }}'
+      verbose = '${{ inputs.verbose }}'
+
+      if verbose.lower() == 'true':
+        print('Working directory: {}'.format(os.getcwd()))
+
+      os.system('python3 decompress.py "{}" "{}" "{}"'.format(file_path, extract_dir, verbose))
+    shell: python

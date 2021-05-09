@@ -1,0 +1,124 @@
+name: Test
+
+on: push
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create files to test
+        run: |
+          mkdir -p tmp/hoge/fuga
+          touch tmp/template/hoge/fuga/file
+          touch tmp/template/file
+
+      - name: Create zip
+        uses: ihiroky/archive-action@v1
+          file_path: tmp/a.zip
+          root_dir: tmp/template
+      - name: Extract zip
+        uses: ./
+        with:
+          file_path: tmp/a.zip
+          extract_dir: tmp/zip
+          verbose: true
+      - run: test -f tmp/zip/hoge/fuga/file -a -f tmp/zip/file
+        shell: bash
+
+      - name: Create tar
+        uses: ihiroky/archive-action@v1
+          file_path: tmp/a.tar
+          root_dir: tmp/template
+      - name: Extract tar
+        uses: ./
+        with:
+          file_path: tmp/a.tar
+          extract_dir: tmp/tar
+          verbose: true
+      - run: test -f tmp/tar/hoge/fuga/file -a -f tmp/tar/file
+        shell: bash
+
+      - name: Create tar.gz
+        uses: ihiroky/archive-action@v1
+          file_path: tmp/a.tar.gz
+          root_dir: tmp/template
+      - name: Extract tar.gz
+        uses: ./
+        with:
+          file_path: tmp/a.tar.gz
+          extract_dir: tmp/tar.gz
+          verbose: true
+      - run: test -f tmp/tar.gz/hoge/fuga/file -a -f tmp/tar.gz/file
+        shell: bash
+
+      - name: Create tgz
+        uses: ihiroky/archive-action@v1
+          file_path: tmp/a.tgz
+          root_dir: tmp/template
+      - name: Extract tgz
+        uses: ./
+        with:
+          file_path: tmp/a.tgz
+          extract_dir: tmp/tgz
+          verbose: true
+      - run: test -f tmp/tgz/hoge/fuga/file -a -f tmp/tgz/file
+        shell: bash
+
+      - name: Create tar.bz2
+        uses: ihiroky/archive-action@v1
+          file_path: tmp/a.tar.bz2
+          root_dir: tmp/template
+      - name: Extract tar
+        uses: ./
+        with:
+          file_path: tmp/a.tar.bz2
+          extract_dir: tmp/tar.bz2
+          verbose: true
+      - run: test -f tmp/tar.bz2/hoge/fuga/file -a -f tmp/tar.bz2/file
+        shell: bash
+
+      - name: Create tbz2
+        uses: ihiroky/archive-action@v1
+          file_path: tmp/a.tbz2
+          root_dir: tmp/template
+      - name: Extract tar
+        uses: ./
+        with:
+          file_path: tmp/a.tbz2
+          extract_dir: tmp/tbz2
+          verbose: true
+      - run: test -f tmp/tbz2/hoge/fuga/file -a -f tmp/tbz2/file
+        shell: bash
+
+      - name: Create tar.xz
+        uses: ihiroky/archive-action@v1
+          file_path: tmp/a.tar.xz
+          root_dir: tmp/template
+      - name: Extract tar.xz
+        uses: ./
+        with:
+          file_path: tmp/a.tar.xz
+          extract_dir: tmp/tar.xz
+          verbose: true
+      - run: test -f tmp/tar.xz/hoge/fuga/file -a -f tmp/tar.xz/file
+        shell: bash
+
+      - name: Create txz
+        uses: ihiroky/archive-action@v1
+          file_path: tmp/a.txz
+          root_dir: tmp/template
+      - name: Extract tar
+        uses: ./
+        with:
+          file_path: tmp/a.txz
+          extract_dir: tmp/txz
+          verbose: true
+      - run: test -f tmp/txz/hoge/fuga/file -a -f tmp/txz/file
+        shell: bash
