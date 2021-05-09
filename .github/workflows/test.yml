@@ -15,7 +15,7 @@ jobs:
 
       - name: Create files to test
         run: |
-          mkdir -p tmp/hoge/fuga
+          mkdir -p tmp/template/hoge/fuga
           touch tmp/template/hoge/fuga/file
           touch tmp/template/file
 
