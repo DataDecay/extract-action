@@ -24,6 +24,7 @@ jobs:
         with:
           file_path: tmp/a.zip
           root_dir: tmp/template
+          verbose: true
       - name: Extract zip
         uses: ./
         with:
