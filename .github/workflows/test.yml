@@ -20,7 +20,7 @@ jobs:
           touch tmp/template/file
 
       - name: Create zip
-        uses: ihiroky/archive-action@v1
+        uses: ihiroky/archive-action@main
         with:
           file_path: tmp/a.zip
           root_dir: tmp/template
@@ -35,7 +35,7 @@ jobs:
         shell: bash
 
       - name: Create tar
-        uses: ihiroky/archive-action@v1
+        uses: ihiroky/archive-action@main
         with:
           file_path: tmp/a.tar
           root_dir: tmp/template
@@ -49,7 +49,7 @@ jobs:
         shell: bash
 
       - name: Create tar.gz
-        uses: ihiroky/archive-action@v1
+        uses: ihiroky/archive-action@main
         with:
           file_path: tmp/a.tar.gz
           root_dir: tmp/template
@@ -63,7 +63,7 @@ jobs:
         shell: bash
 
       - name: Create tgz
-        uses: ihiroky/archive-action@v1
+        uses: ihiroky/archive-action@main
         with:
           file_path: tmp/a.tgz
           root_dir: tmp/template
@@ -77,7 +77,7 @@ jobs:
         shell: bash
 
       - name: Create tar.bz2
-        uses: ihiroky/archive-action@v1
+        uses: ihiroky/archive-action@main
         with:
           file_path: tmp/a.tar.bz2
           root_dir: tmp/template
@@ -91,7 +91,7 @@ jobs:
         shell: bash
 
       - name: Create tbz2
-        uses: ihiroky/archive-action@v1
+        uses: ihiroky/archive-action@main
         with:
           file_path: tmp/a.tbz2
           root_dir: tmp/template
@@ -105,7 +105,7 @@ jobs:
         shell: bash
 
       - name: Create tar.xz
-        uses: ihiroky/archive-action@v1
+        uses: ihiroky/archive-action@main
         with:
           file_path: tmp/a.tar.xz
           root_dir: tmp/template
@@ -119,7 +119,7 @@ jobs:
         shell: bash
 
       - name: Create txz
-        uses: ihiroky/archive-action@v1
+        uses: ihiroky/archive-action@main
         with:
           file_path: tmp/a.txz
           root_dir: tmp/template

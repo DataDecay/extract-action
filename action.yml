@@ -31,5 +31,6 @@ runs:
       if verbose.lower() == 'true':
         print('Working directory: {}'.format(os.getcwd()))
 
-      os.system('python3 decompress.py "{}" "{}" "{}"'.format(file_path, extract_dir, verbose))
+      script = os.path.join(r'${{ github.action_path }}', 'decompress.py')
+      os.system('python3 "{}" "{}" "{}" "{}"'.format(script, file_path, extract_dir, verbose))
     shell: python
