@@ -16,8 +16,8 @@ def main(file_path, extract_dir, verbose):
   try:
     shutil.unpack_archive(file_path, extract_dir)
     print('Sucessfully unpacked.')
-  except Exception:
-    print('Failed to unpack file: {0}.'.format(file_path))
+  except Exception as error:
+    print('Failed to unpack file: {0}. {1}.'.format(file_path, error))
     sys.exit(2)
 
 
